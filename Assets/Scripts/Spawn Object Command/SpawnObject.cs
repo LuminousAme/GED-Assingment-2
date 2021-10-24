@@ -5,23 +5,29 @@ using UnityEngine;
 public class SpawnObject : MonoBehaviour
 {
     static List<Transform> obj;
+    static uint currentId;
 
-    public static void PlaceObject(Vector3 position, Color color, Transform cube)
+    public static uint PlaceObject(Vector3 position, Color color, Transform newObject)
     {
-        Transform newPlatform = Instantiate(cube, position, Quaternion.identity);
+        Transform newPlatform = Instantiate(newObject, position, Quaternion.identity);
         newPlatform.GetComponentInChildren<MeshRenderer>().material.color = color;
         if (obj == null)
         {
             obj = new List<Transform>();
+            currentId = 0;
         }
         obj.Add(newPlatform);
+        currentId++;
+        newPlatform.GetComponent<ObjectIDContainer>().ID = currentId;
+
+        return currentId;
     }
 
-    public static void RemoveObject(Vector3 position, Color color)
+    public static void RemoveObject(uint id)
     {
-        for (int i = 0; i < obj.Count; i++)
+        for(int i = 0; i < obj.Count; i++)
         {
-            if (obj[i].position == position && obj[i].GetComponentInChildren<MeshRenderer>().material.color == color)
+            if (obj[i].GetComponent<ObjectIDContainer>().ID == id)
             {
                 GameObject.Destroy(obj[i].gameObject);
                 obj.RemoveAt(i);

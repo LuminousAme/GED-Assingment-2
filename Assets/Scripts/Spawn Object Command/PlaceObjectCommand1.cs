@@ -6,22 +6,23 @@ public class PlaceObjectCommand : SpawnFunctions
 {
     Vector3 position;
     Color color;
-    Transform cube;
+    Transform obj;
+    uint id;
 
-    public PlaceObjectCommand(Vector3 position, Color color, Transform cube)
+    public PlaceObjectCommand(Vector3 position, Color color, Transform obj)
     {
         this.position = position;
         this.color = color;
-        this.cube = cube;
+        this.obj = obj;
     }
 
     public void Execute()
     {
-        SpawnObject.PlaceObject(position, color, cube);
+        id = SpawnObject.PlaceObject(position, color, obj);
     }
 
     public void Undo()
     {
-        SpawnObject.RemoveObject(position, color);
+        SpawnObject.RemoveObject(id);
     }
 }
