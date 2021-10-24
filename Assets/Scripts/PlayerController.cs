@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
             //screenshake
             Camera.main.GetComponent<CameraFollow>().shakeScreen(0.25f, 0.2f);
             //subtract from the player's hp
-            FindObjectOfType<GameManager>().ChangeHp(-0.05f);
+            FindObjectOfType<GameManager>().ChangeHp(-0.2f);
         }
     }
 

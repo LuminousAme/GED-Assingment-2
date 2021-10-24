@@ -13,6 +13,7 @@ public class SpawnScript : MonoBehaviour
     {
         commandBuffer = new Queue<SpawnFunctions>();
         commandHistory = new List<SpawnFunctions>();
+        counter = 0;
     }
 
     public static void AddCommand(SpawnFunctions command)
@@ -38,6 +39,7 @@ public class SpawnScript : MonoBehaviour
         }
         else
         {
+            //undo
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 if (counter > 0)
@@ -46,6 +48,7 @@ public class SpawnScript : MonoBehaviour
                     commandHistory[counter].Undo();
                 }
             }
+            //redo
             else if (Input.GetKeyDown(KeyCode.E))
             {
                 if (counter < commandHistory.Count)
