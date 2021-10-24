@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 523311127131955148}
   - component: {fileID: 5394220908789182765}
   - component: {fileID: 2851433395293715720}
+  - component: {fileID: 8365349932800668594}
   m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
@@ -157,3 +158,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &8365349932800668594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467568457852063277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a2503a644cfe445a3837a4911d61a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathStart: {x: 0, y: 0, z: 0}
+  pathEnd: {x: 0, y: 0, z: 0}
+  travelSpeed: 5

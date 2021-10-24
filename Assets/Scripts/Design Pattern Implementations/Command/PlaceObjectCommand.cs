@@ -5,20 +5,18 @@ using UnityEngine;
 public class PlaceObjectCommand : SpawnFunctions
 {
     Vector3 position;
-    Color color;
-    Transform obj;
+    string type;
     uint id;
 
-    public PlaceObjectCommand(Vector3 position, Color color, Transform obj)
+    public PlaceObjectCommand(Vector3 position, string type)
     {
         this.position = position;
-        this.color = color;
-        this.obj = obj;
+        this.type = type;
     }
 
     public void Execute()
     {
-        id = SpawnObject.PlaceObject(position, color, obj);
+        id = SpawnObject.PlaceObject(position, type);
     }
 
     public void Undo()

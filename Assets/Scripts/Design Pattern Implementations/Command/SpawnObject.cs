@@ -7,18 +7,17 @@ public class SpawnObject : MonoBehaviour
     static List<Transform> obj;
     static uint currentId;
 
-    public static uint PlaceObject(Vector3 position, Color color, Transform newObject)
+    public static uint PlaceObject(Vector3 position, string type)
     {
-        Transform newPlatform = Instantiate(newObject, position, Quaternion.identity);
-        newPlatform.GetComponentInChildren<MeshRenderer>().material.color = color;
         if (obj == null)
         {
             obj = new List<Transform>();
             currentId = 0;
         }
-        obj.Add(newPlatform);
+        Transform newObject = ObjectFactory.MakeObject(type).Spawn(position);
+        obj.Add(newObject);
         currentId++;
-        newPlatform.GetComponent<ObjectIDContainer>().ID = currentId;
+        newObject.GetComponent<ObjectIDContainer>().ID = currentId;
 
         return currentId;
     }

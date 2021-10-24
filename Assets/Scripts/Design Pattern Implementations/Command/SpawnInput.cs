@@ -7,9 +7,6 @@ public class SpawnInput : MonoBehaviour
     Camera maincam;
     Plane gamePlane = new Plane(Vector3.right, 0);
     float distanceAlongRay = 0;
-    //RaycastHit hitInfo;
-    public Transform PlatformPrefab;
-    public Transform EnemyPrefab;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,9 +22,8 @@ public class SpawnInput : MonoBehaviour
             Ray ray = maincam.ScreenPointToRay(Input.mousePosition);
             if (gamePlane.Raycast(ray, out distanceAlongRay))
             {
-                Color c = new Color(1, 1, 1);
 
-                SpawnFunctions command = new PlaceObjectCommand(ray.GetPoint(distanceAlongRay), c, PlatformPrefab);
+                SpawnFunctions command = new PlaceObjectCommand(ray.GetPoint(distanceAlongRay), "platform");
                 SpawnScript.AddCommand(command);
             }
         }
@@ -37,9 +33,7 @@ public class SpawnInput : MonoBehaviour
             Ray ray = maincam.ScreenPointToRay(Input.mousePosition);
             if (gamePlane.Raycast(ray, out distanceAlongRay))
             {
-                Color c = new Color(0.75f, 0, 0);
-
-                SpawnFunctions command = new PlaceObjectCommand(ray.GetPoint(distanceAlongRay), c, EnemyPrefab);
+                SpawnFunctions command = new PlaceObjectCommand(ray.GetPoint(distanceAlongRay), "enemy");
                 SpawnScript.AddCommand(command);
             }
         }

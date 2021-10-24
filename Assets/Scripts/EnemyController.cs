@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     //the start and end of their path
-    [SerializeField] private Vector3 pathStart, pathEnd;
+    public Vector3 pathStart, pathEnd;
     //the speed at which they travel it in units/second
     [SerializeField] private float travelSpeed = 5f;
 
