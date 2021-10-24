@@ -81,17 +81,6 @@ public static class LevelSerializationManager
         //clear the data on the C++, we're about to read it all in from a file anyways
         ClearData();
 
-        //if the file is null check if one called sample level exists
-        if (CurrentFile == null)
-        {
-            //if it does not create an empty sample level
-            if(!File.Exists(Application.persistentDataPath + "/SampleLevel.atxsl"))
-                SaveLevel(Application.persistentDataPath + "/SampleLevel.atxsl");
-
-            //and make set the file name to Sample level
-            CurrentFile = "SampleLevel";
-        }
-
         //check we have a filename to read from
         if (CurrentFile != null)
         {
