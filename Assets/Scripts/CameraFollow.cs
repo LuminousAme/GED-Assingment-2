@@ -13,7 +13,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private Vector3 acceptableRange;
 
     //the player's transform to check their position
-    [SerializeField] private Transform playerTrans;
+    public Transform playerTrans;
 
     //internal position
     private Vector3 thisPos;

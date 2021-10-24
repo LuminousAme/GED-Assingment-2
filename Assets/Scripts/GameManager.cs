@@ -12,9 +12,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] Slider hpTracker;
     private float playerHP;
 
-    // Start is called before the first frame update
+    // awake is called when the level is first started
     void Awake()
     {
+        //create the player
+        Transform newPlayer = ObjectFactory.MakeObject("player").Spawn(new Vector3(0.0f, 0.0f, -10.0f));
+        //tell the camera to follow them
+        CameraFollow camFollow = Camera.main.GetComponent<CameraFollow>();
+        if(camFollow != null) camFollow.playerTrans = newPlayer;
+
         //find the number of enemies
         EnemyController[] enemies = Object.FindObjectsOfType<EnemyController>();
         TotalEnemyNum = enemies.Length;

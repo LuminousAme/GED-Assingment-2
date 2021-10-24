@@ -127,7 +127,8 @@ public class PlayerController : MonoBehaviour
             knockBackTimePassed = knockBackTime;
 
             //screenshake
-            Camera.main.GetComponent<CameraFollow>().shakeScreen(0.25f, 0.2f);
+            CameraFollow camFollow = Camera.main.GetComponent<CameraFollow>();
+            if(camFollow != null) camFollow.shakeScreen(0.25f, 0.2f);
             //subtract from the player's hp
             FindObjectOfType<GameManager>().ChangeHp(-0.2f);
         }

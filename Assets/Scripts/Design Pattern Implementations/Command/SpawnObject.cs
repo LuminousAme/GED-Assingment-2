@@ -14,6 +14,7 @@ public class SpawnObject : MonoBehaviour
             obj = new List<Transform>();
             currentId = 0;
         }
+        if (position.y < 0) position.y = 0; //don't allow the player to place objects below the ground
         Transform newObject = ObjectFactory.MakeObject(type).Spawn(position);
         obj.Add(newObject);
         currentId++;
