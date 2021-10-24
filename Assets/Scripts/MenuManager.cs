@@ -9,4 +9,14 @@ public class MenuManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void LaunchEditor()
+    {
+        SceneManager.LoadScene("LevelEditingScene");
+    }
 }

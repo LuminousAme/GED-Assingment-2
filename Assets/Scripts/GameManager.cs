@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     // awake is called when the level is first started
     void Awake()
     {
+        //load the level with all of the enemies and platforms
+        LevelSerializationManager.LoadAndSpawnLevel();
+
         //create the player
         Transform newPlayer = ObjectFactory.MakeObject("player").Spawn(new Vector3(0.0f, 0.0f, -10.0f));
         //tell the camera to follow them
