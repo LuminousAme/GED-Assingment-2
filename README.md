@@ -12,8 +12,8 @@ files it will generate an empty level by default.
 
 ### Screenshots
 
-![Main menu](Images/Main menu.png)
-![Level editor](Images/Level editor.png)
+![Menu](Images/Menu.png)
+![Editor](Images/Editor.png)
 ![Game](Images/Game.png)
 
 ### Demo Video
