@@ -12,8 +12,8 @@ files it will generate an empty level by default.
 
 ### Screenshots
 
-![Menu](Images/Main menu.png)
-![Editor](Images/Level editor.png)
+![Main menu](Images/Main menu.png)
+![Level editor](Images/Level editor.png)
 ![Game](Images/Game.png)
 
 ### Demo Video
@@ -28,7 +28,7 @@ Alvin Ng - 100754129 - Technical Artist
 
 ### UML Diagram
 
-![UML](images/UML.png)
+![UML](Images/UML.png)
 
 ### Third-Party acknowledgement
 
