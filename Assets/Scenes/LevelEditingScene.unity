@@ -508,21 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6c633c6e838c24cb93b6d1ed9a5d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Saves:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 993347548}
-        m_TargetAssemblyTypeName: ChangeUpdate, Assembly-CSharp
-        m_MethodName: Saved
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  HUD: {fileID: 621389937}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

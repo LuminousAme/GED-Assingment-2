@@ -7,20 +7,23 @@ using UnityEngine.Events;
 
 public class LevelEditorManager : MonoBehaviour
 {
+    static bool PopUpEnabled;
+    [SerializeField] private Transform HUD;
+
     void Awake()
     {
         //load the level in for editing
         LevelSerializationManager.LoadAndSpawnLevel();
+        PopUpEnabled = false;
     }
 
-    public UnityEvent Saves;
+    public static event Action savedAction;
 
     public void SavePressed()
     {
         LevelSerializationManager.SerializeLevel();
         //send out event signal for the observer later
-        Saves.Invoke();
-        
+        savedAction.Invoke();
     }
 
     private void MainMenuPressed()
@@ -32,13 +35,34 @@ public class LevelEditorManager : MonoBehaviour
     //runs every frame
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.S))
+        if(!PopUpEnabled)
         {
-            SavePressed();
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                SavePressed();
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (ChangeUpdate.GetIsSaved())
+                    MainMenuPressed();
+                else
+                {
+                    //make the action
+                    Action goToMainMenuAction = () =>
+                    {
+                        this.MainMenuPressed();
+                    };
+
+                    //create the popup
+                    GameObject NewPopUp = Instantiate(Resources.Load("Prefab/PopUp") as GameObject);
+                    NewPopUp.GetComponent<PopUp>().InitPopUp(HUD, goToMainMenuAction);
+                }
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            MainMenuPressed();
-        }
+    }
+
+    public static void SetPopUpEnabled(bool enabled)
+    {
+        PopUpEnabled = enabled;
     }
 }

@@ -7,38 +7,48 @@ using UnityEngine.UI;
 
 public class ChangeUpdate : MonoBehaviour
 {
-    
+    //The UI text indicating if level editing changes have been saved or not
     public Text UnsaveUI;
-    bool SavedState;
+    //bool to track if all the changes are saved or not
+    private static bool SavedState;
 
     private void Start()
     {
-        UnsaveUI.text = "Saved";
+        UnsaveUI.text = "";
+        SavedState = true;
     }
 
     //subscribes to delegate
     private void OnEnable()
     {
         SpawnDetect.ObjectChanged += UpdateSave;
+        LevelEditorManager.savedAction += Saved;
     }
 
     //Unsibscribes to delegate
     private void OnDisable()
     {
         SpawnDetect.ObjectChanged -= UpdateSave;
+        LevelEditorManager.savedAction -= Saved;
     }
 
     //change text to unsaved
     public void UpdateSave()
     {
-       UnsaveUI.text = "Unsaved Changes";
+        UnsaveUI.text = "Unsaved Changes";
         SavedState = false;
     }
 
     //change text to saved
     public void Saved()
     {
-        UnsaveUI.text = "Saved";
+        UnsaveUI.text = "All Changes Saved";
         SavedState = true;
+    }
+
+    //function to get if the editted level has been saved or not
+    public static bool GetIsSaved()
+    {
+        return SavedState;
     }
 }
