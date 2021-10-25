@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpawnScript : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class SpawnScript : MonoBehaviour
 
     static List<SpawnFunctions> commandHistory;
     static int counter;
+
+    public UnityEvent Unsaved;
 
     private void Awake()
     {
@@ -46,6 +49,7 @@ public class SpawnScript : MonoBehaviour
                 {
                     counter--;
                     commandHistory[counter].Undo();
+                    Unsaved.Invoke();
                 }
             }
             //redo
@@ -55,6 +59,7 @@ public class SpawnScript : MonoBehaviour
                 {
                     commandHistory[counter].Execute();
                     counter++;
+                    Unsaved.Invoke();
                 }
             }
         }

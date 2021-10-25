@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using UnityEngine.Events;
 
 public class LevelEditorManager : MonoBehaviour
 {
@@ -11,10 +13,14 @@ public class LevelEditorManager : MonoBehaviour
         LevelSerializationManager.LoadAndSpawnLevel();
     }
 
-    private void SavePressed()
+    public UnityEvent Saves;
+
+    public void SavePressed()
     {
         LevelSerializationManager.SerializeLevel();
         //send out event signal for the observer later
+        Saves.Invoke();
+        
     }
 
     private void MainMenuPressed()
