@@ -18,7 +18,8 @@ files it will generate an empty level by default.
 
 ### Demo Video
 
-[TK]
+Youtube link: [https://youtu.be/USZUQjtvepA](https://youtu.be/USZUQjtvepA "Youtube")
+Hubs Room: [https://hubs.mozilla.com/zqJdReB/atlas-x-games-subgroup-2-assignment-2-room/ "Mozilla"]
 
 ### Developement Team
 
